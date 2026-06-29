@@ -1,0 +1,105 @@
+.sidebar {
+  height: 100vh;
+  background: #111827;
+  border-right: 1px solid #1f2937;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 16px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.expanded {
+  width: 260px;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.logo h2 {
+  font-size: 22px;
+  color: #f8fafc;
+}
+
+.toggle-btn {
+  background: #1f2937;
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.toggle-btn:hover {
+  background: #374151;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #94a3b8;
+  transition: 0.25s;
+}
+
+.nav-item:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.nav-item.active {
+  background: #312e81;
+  color: white;
+}
+
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.online-box {
+  background: #1f2937;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.online-title {
+  color: #94a3b8;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.online-count {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.theme-btn {
+  background: #1f2937;
+  color: white;
+  border-radius: 12px;
+  padding: 12px;
+  transition: .25s;
+}
+
+.theme-btn:hover {
+  background: #374151;
+}

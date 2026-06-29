@@ -1,0 +1,41 @@
+.activity-panel {
+  width: 320px;
+  background: #111827;
+  border-left: 1px solid #1f2937;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.activity-panel h2 {
+  margin-bottom: 20px;
+}
+
+.empty {
+  color: #94a3b8;
+}
+
+.activity-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.activity-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.activity-text p {
+  margin: 4px 0;
+  color: #cbd5e1;
+}
+
+.activity-text small {
+  color: #64748b;
+}

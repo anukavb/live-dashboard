@@ -1,0 +1,25 @@
+.workspace{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.workspace-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:24px;
+
+}
+
+@media(max-width:1000px){
+
+.workspace-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}
