@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import useStore from "../store/useStore";
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +24,13 @@ export default function CommandPalette() {
     c.label.toLowerCase().includes(query.toLowerCase())
   );
 
+  const runCommand = useCallback((cmd) => {
+    if (!cmd) return;
+    if (cmd.action === "nav") navigate(cmd.path);
+    if (cmd.action === "theme") toggleTheme();
+    closePalette();
+  }, [navigate, toggleTheme, closePalette]);
+
   // Open with Ctrl+K / Cmd+K
   useEffect(() => {
     const handler = (e) => {
@@ -47,7 +54,7 @@ export default function CommandPalette() {
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [paletteOpen, filtered, selected]);
+  }, [paletteOpen, filtered, selected, runCommand]);
 
   useEffect(() => {
     if (paletteOpen) {
@@ -56,13 +63,6 @@ export default function CommandPalette() {
       setTimeout(() => inputRef.current?.focus(), 50);
     }
   }, [paletteOpen]);
-
-  function runCommand(cmd) {
-    if (!cmd) return;
-    if (cmd.action === "nav") navigate(cmd.path);
-    if (cmd.action === "theme") toggleTheme();
-    closePalette();
-  }
 
   if (!paletteOpen) return null;
 
@@ -75,7 +75,7 @@ export default function CommandPalette() {
       <div style={{
         position: "fixed", top: "20%", left: "50%",
         transform: "translateX(-50%)", width: 480,
-        background: "#1e2436", border: "1px solid #3a4570",
+        background: "var(--bg-panel)", border: "1px solid var(--bg-border)",
         borderRadius: 12, zIndex: 1000, overflow: "hidden"
       }}>
         <input
@@ -86,13 +86,13 @@ export default function CommandPalette() {
           style={{
             width: "100%", padding: "14px 16px",
             background: "transparent", border: "none",
-            borderBottom: "1px solid #2a3050",
-            color: "white", fontSize: 15, outline: "none"
+            borderBottom: "1px solid var(--bg-border)",
+            color: "var(--text-main)", fontSize: 15, outline: "none"
           }}
         />
         <div style={{ padding: 6 }}>
           {filtered.length === 0 && (
-            <div style={{ padding: "10px 12px", color: "#8b92a8" }}>No commands found</div>
+            <div style={{ padding: "10px 12px", color: "var(--text-muted)" }}>No commands found</div>
           )}
           {filtered.map((cmd, i) => (
             <div
@@ -104,7 +104,7 @@ export default function CommandPalette() {
                 padding: "10px 12px", borderRadius: 6, cursor: "pointer",
                 fontSize: 14,
                 background: i === selected ? "#6366f130" : "transparent",
-                color: i === selected ? "#818cf8" : "#8b92a8"
+                color: i === selected ? "#818cf8" : "var(--text-muted)"
               }}
             >
               <span>{cmd.icon}</span>
@@ -113,9 +113,9 @@ export default function CommandPalette() {
           ))}
         </div>
         <div style={{
-          padding: "8px 14px", borderTop: "1px solid #2a3050",
+          padding: "8px 14px", borderTop: "1px solid var(--bg-border)",
           display: "flex", gap: 14,
-          fontSize: 11, color: "#5a6280"
+          fontSize: 11, color: "var(--text-muted)"
         }}>
           <span>↑↓ navigate</span>
           <span>↵ select</span>
