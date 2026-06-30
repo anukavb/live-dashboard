@@ -70,4 +70,4 @@ App runs at \`http://localhost:3000\`
 
 ## Live Demo
 
-[Add your Vercel link here after deploying]
+Vercel Link: https://live-dashboard-red.vercel.app
