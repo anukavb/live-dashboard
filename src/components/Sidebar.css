@@ -1,21 +1,16 @@
 .sidebar {
   height: 100vh;
-  background: #111827;
-  border-right: 1px solid #1f2937;
+  background: var(--bg-panel);
+  border-right: 1px solid var(--bg-border);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px 16px;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, background 0.2s;
 }
 
-.sidebar.expanded {
-  width: 260px;
-}
-
-.sidebar.collapsed {
-  width: 80px;
-}
+.sidebar.expanded { width: 260px; }
+.sidebar.collapsed { width: 80px; }
 
 .logo {
   display: flex;
@@ -24,23 +19,18 @@
   margin-bottom: 32px;
 }
 
-.logo h2 {
-  font-size: 22px;
-  color: #f8fafc;
-}
+.logo h2 { font-size: 22px; color: var(--text-main); }
 
 .toggle-btn {
-  background: #1f2937;
-  color: white;
+  background: var(--bg-border);
+  color: var(--text-main);
   width: 34px;
   height: 34px;
   border-radius: 8px;
   transition: 0.2s;
 }
 
-.toggle-btn:hover {
-  background: #374151;
-}
+.toggle-btn:hover { opacity: 0.8; }
 
 .nav-links {
   display: flex;
@@ -55,17 +45,17 @@
   padding: 12px;
   border-radius: 12px;
   text-decoration: none;
-  color: #94a3b8;
+  color: var(--text-muted);
   transition: 0.25s;
 }
 
 .nav-item:hover {
-  background: #1f2937;
-  color: white;
+  background: var(--bg-border);
+  color: var(--text-main);
 }
 
 .nav-item.active {
-  background: #312e81;
+  background: #6366f1;
   color: white;
 }
 
@@ -76,30 +66,20 @@
 }
 
 .online-box {
-  background: #1f2937;
+  background: var(--bg-border);
   border-radius: 12px;
   padding: 14px;
 }
 
-.online-title {
-  color: #94a3b8;
-  font-size: 12px;
-  margin-bottom: 4px;
-}
-
-.online-count {
-  font-size: 22px;
-  font-weight: bold;
-}
+.online-title { color: var(--text-muted); font-size: 12px; margin-bottom: 4px; }
+.online-count { font-size: 22px; font-weight: bold; color: var(--text-main); }
 
 .theme-btn {
-  background: #1f2937;
-  color: white;
+  background: var(--bg-border);
+  color: var(--text-main);
   border-radius: 12px;
   padding: 12px;
   transition: .25s;
 }
 
-.theme-btn:hover {
-  background: #374151;
-}
+.theme-btn:hover { opacity: 0.8; }

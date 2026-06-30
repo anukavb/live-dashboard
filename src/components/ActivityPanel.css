@@ -1,24 +1,17 @@
 .activity-panel {
   width: 320px;
-  background: #111827;
-  border-left: 1px solid #1f2937;
+  background: var(--bg-panel);
+  border-left: 1px solid var(--bg-border);
   padding: 24px;
   overflow-y: auto;
+  transition: background 0.2s;
 }
 
-.activity-panel h2 {
-  margin-bottom: 20px;
-}
+.activity-panel h2 { color: var(--text-main); margin-bottom: 20px; }
 
-.empty {
-  color: #94a3b8;
-}
+.empty { color: var(--text-muted); }
 
-.activity-item {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 20px;
-}
+.activity-item { display: flex; gap: 14px; margin-bottom: 20px; }
 
 .activity-avatar {
   width: 42px;
@@ -31,11 +24,6 @@
   flex-shrink: 0;
 }
 
-.activity-text p {
-  margin: 4px 0;
-  color: #cbd5e1;
-}
-
-.activity-text small {
-  color: #64748b;
-}
+.activity-text strong { color: var(--text-main); }
+.activity-text p { margin: 4px 0; color: var(--text-muted); }
+.activity-text small { color: var(--text-muted); opacity: 0.7; }

@@ -24,8 +24,7 @@ function App() {
 
   // Theme switching
   useEffect(() => {
-    document.body.style.background = isDark ? "#0F172A" : "#f1f5f9";
-    document.body.style.color = isDark ? "white" : "#0f172a";
+  document.body.classList.toggle("light", !isDark);
   }, [isDark]);
 
   // Live collaborator simulation

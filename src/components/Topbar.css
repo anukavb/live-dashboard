@@ -1,17 +1,18 @@
 .topbar {
   height: 72px;
-  background: #111827;
-  border-bottom: 1px solid #1f2937;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--bg-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
   position: relative;
+  transition: background 0.2s;
 }
 
 .search-box {
   width: 380px;
-  background: #1f2937;
+  background: var(--bg-border);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -23,38 +24,28 @@
   flex: 1;
   background: transparent;
   border: none;
-  color: white;
+  color: var(--text-main);
   font-size: 15px;
 }
 
-.search-box input::placeholder {
-  color: #94a3b8;
-}
+.search-box input::placeholder { color: var(--text-muted); }
 
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
+.topbar-right { display: flex; align-items: center; gap: 18px; }
 
 .icon-btn {
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: #1f2937;
-  color: white;
+  background: var(--bg-border);
+  color: var(--text-main);
   display: grid;
   place-items: center;
   transition: 0.25s;
 }
 
-.icon-btn:hover {
-  background: #374151;
-}
+.icon-btn:hover { opacity: 0.8; }
 
-.avatar-group {
-  display: flex;
-}
+.avatar-group { display: flex; }
 
 .avatar {
   width: 36px;
@@ -66,11 +57,10 @@
   font-size: 13px;
   font-weight: 600;
   margin-left: -8px;
-  border: 2px solid #111827;
+  border: 2px solid var(--bg-panel);
   position: relative;
 }
 
-/* Presence Indicator */
 .avatar::after {
   content: "";
   position: absolute;
@@ -79,20 +69,12 @@
   border-radius: 50%;
   right: -2px;
   bottom: -2px;
-  border: 2px solid #111827;
+  border: 2px solid var(--bg-panel);
 }
 
-.avatar.viewing::after {
-  background: #22c55e;
-}
-
-.avatar.typing::after {
-  background: #f59e0b;
-}
-
-.avatar.away::after {
-  background: #64748b;
-}
+.avatar.viewing::after { background: #22c55e; }
+.avatar.typing::after { background: #f59e0b; }
+.avatar.away::after { background: #64748b; }
 
 .user-avatar {
   width: 42px;
@@ -102,6 +84,7 @@
   display: grid;
   place-items: center;
   font-weight: bold;
+  color: white;
 }
 
 .live-status {

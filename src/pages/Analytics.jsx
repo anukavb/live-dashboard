@@ -17,7 +17,7 @@ export default function Analytics() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
 
-      <h2 style={{ fontSize: 24, fontWeight: 700 }}>Analytics</h2>
+      <h2 style={{ fontSize: 24, fontWeight: 700, color: "var(--text-main)" }}>Analytics</h2>
 
       {/* Stat Cards */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
@@ -27,21 +27,21 @@ export default function Analytics() {
           { label: "Team Size", value: stats.activeUsers },
         ].map((s) => (
           <div key={s.label} style={{
-            background: "#111827", borderRadius: 16,
-            padding: 20, border: "1px solid #1f2937"
+            background: "var(--bg-panel)", borderRadius: 16,
+            padding: 20, border: "1px solid var(--bg-border)"
           }}>
-            <p style={{ color: "#94a3b8", marginBottom: 8 }}>{s.label}</p>
-            <h2 style={{ fontSize: 32 }}>{s.value}</h2>
+            <p style={{ color: "var(--text-muted)", marginBottom: 8 }}>{s.label}</p>
+            <h2 style={{ fontSize: 32, color: "var(--text-main)" }}>{s.value}</h2>
           </div>
         ))}
       </div>
 
       {/* Bar Chart */}
       <div style={{
-        background: "#111827", borderRadius: 16,
-        padding: 24, border: "1px solid #1f2937"
+        background: "var(--bg-panel)", borderRadius: 16,
+        padding: 24, border: "1px solid var(--bg-border)"
       }}>
-        <h3 style={{ marginBottom: 20 }}>Activity This Week</h3>
+        <h3 style={{ marginBottom: 20, color: "var(--text-main)" }}>Activity This Week</h3>
         <div style={{ display: "flex", alignItems: "flex-end", gap: 12, height: 160 }}>
           {bars.map((b) => (
             <div key={b.label} style={{
@@ -55,7 +55,7 @@ export default function Analytics() {
                 borderRadius: "6px 6px 0 0",
                 transition: "height 0.3s"
               }} />
-              <span style={{ fontSize: 12, color: "#94a3b8" }}>{b.label}</span>
+              <span style={{ fontSize: 12, color: "var(--text-muted)" }}>{b.label}</span>
             </div>
           ))}
         </div>
@@ -63,10 +63,10 @@ export default function Analytics() {
 
       {/* Team Status */}
       <div style={{
-        background: "#111827", borderRadius: 16,
-        padding: 24, border: "1px solid #1f2937"
+        background: "var(--bg-panel)", borderRadius: 16,
+        padding: 24, border: "1px solid var(--bg-border)"
       }}>
-        <h3 style={{ marginBottom: 16 }}>Team Status</h3>
+        <h3 style={{ marginBottom: 16, color: "var(--text-main)" }}>Team Status</h3>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {collaborators.map((c) => (
             <div key={c.id} style={{
@@ -75,11 +75,12 @@ export default function Analytics() {
               <div style={{
                 width: 36, height: 36, borderRadius: "50%",
                 background: c.color, display: "grid",
-                placeItems: "center", fontWeight: 700, fontSize: 13
+                placeItems: "center", fontWeight: 700, fontSize: 13,
+                color: "white"
               }}>
                 {c.initials}
               </div>
-              <span style={{ flex: 1 }}>{c.name}</span>
+              <span style={{ flex: 1, color: "var(--text-main)" }}>{c.name}</span>
               <span style={{
                 fontSize: 12, padding: "3px 10px", borderRadius: 20,
                 background: c.status === "typing" ? "#f59e0b20"

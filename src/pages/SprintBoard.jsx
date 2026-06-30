@@ -40,7 +40,7 @@ export default function SprintBoard() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
 
-      <h2 style={{ fontSize: 24, fontWeight: 700 }}>Sprint Board</h2>
+      <h2 style={{ fontSize: 24, fontWeight: 700, color: "var(--text-main)" }}>Sprint Board</h2>
 
       {/* Add Task */}
       <div style={{ display: "flex", gap: 10 }}>
@@ -51,8 +51,8 @@ export default function SprintBoard() {
           placeholder="Add a new task..."
           style={{
             flex: 1, padding: "10px 14px",
-            background: "#111827", border: "1px solid #1f2937",
-            borderRadius: 10, color: "white", fontSize: 14, outline: "none"
+            background: "var(--bg-panel)", border: "1px solid var(--bg-border)",
+            borderRadius: 10, color: "var(--text-main)", fontSize: 14, outline: "none"
           }}
         />
         <button
@@ -74,16 +74,16 @@ export default function SprintBoard() {
             onDragOver={(e) => e.preventDefault()}
             onDrop={() => onDrop(col)}
             style={{
-              background: "#111827", borderRadius: 16,
-              padding: 16, border: "1px solid #1f2937",
+              background: "var(--bg-panel)", borderRadius: 16,
+              padding: 16, border: "1px solid var(--bg-border)",
               minHeight: 300
             }}
           >
-            <h3 style={{ marginBottom: 14, fontSize: 15 }}>
+            <h3 style={{ marginBottom: 14, fontSize: 15, color: "var(--text-main)" }}>
               {COLUMN_LABELS[col]}
               <span style={{
                 marginLeft: 8, fontSize: 12,
-                color: "#94a3b8"
+                color: "var(--text-muted)"
               }}>
                 {tasks[col].length}
               </span>
@@ -96,9 +96,10 @@ export default function SprintBoard() {
                   draggable
                   onDragStart={() => onDragStart(task, col)}
                   style={{
-                    background: "#1f2937", borderRadius: 10,
+                    background: "var(--bg-border)", borderRadius: 10,
                     padding: "12px 14px", fontSize: 14,
-                    cursor: "grab", border: "1px solid #374151",
+                    cursor: "grab", border: "1px solid var(--bg-border)",
+                    color: "var(--text-main)",
                     transition: "0.2s",
                     opacity: dragging?.task === task ? 0.4 : 1
                   }}
